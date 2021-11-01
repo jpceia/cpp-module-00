@@ -10,11 +10,11 @@ OBJS		= $(SRCS:$(SRC_DIR)/%=$(OBJ_DIR)/%.o)
 CXX	 		= clang++
 RM   		= rm -f
 
-WARN_FLAGS	= -Wall -Werror -Wextra -pedantic-errors
-INC_FLAGS	= -I$(INC_DIR)
-DEBUG_FLAGS	= -g -fsanitize=address
+FLAGS_WARN	= -Wall -Werror -Wextra -pedantic-errors
+FLAGS_INC	= -I$(INC_DIR)
+FLAGS_DEBUG	= -g -fsanitize=address
 
-CXXFLAGS	= $(WARN_FLAGS) $(INC_FLAGS) -std=c++98 
+CXXFLAGS	= $(FLAGS_WARN) $(FLAGS_INC) -std=c++98 
 
 # Object compilation
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%
