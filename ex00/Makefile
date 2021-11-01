@@ -1,11 +1,13 @@
-NAME = megaphone
+NAME 		= megaphone
 
-SRCS = megaphone.cpp
+SRCS 		= megaphone.cpp
 
-CXX	 = clang++
-RM   = rm -f
+CXX	 		= clang++
+RM   		= rm -f
 
-CXXFLAGS = -Wall -Werror -Wextra
+WARN_FLAGS	= -Wall -Werror -Wextra -pedantic-errors
+
+CXXFLAGS 	= $(WARN_FLAGS) -std=c++98 
 
 all:	$(NAME)
 
