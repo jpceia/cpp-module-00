@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 03:30:45 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 05:08:39 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/01 05:26:57 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include <iostream>
 #include <iomanip>
 
+
+std::string str_truncate(std::string s, size_t max_length)
+{
+    if (s.length() > max_length)
+        s = s.substr(0, 9) + ".";
+    return (s);
+}
 
 void    Contact::set_values(void)
 {
@@ -38,9 +45,9 @@ void    Contact::set_values(void)
 void    Contact::print_short(int index)
 {
     std::cout << std::setw(10) << index << " | ";
-    std::cout << std::setw(10) << _first_name    << " | ";
-    std::cout << std::setw(10) << _last_name << " | ";
-    std::cout << std::setw(10) << _nickname << " | " ;
+    std::cout << std::setw(10) << str_truncate(_first_name, 10) << " | ";
+    std::cout << std::setw(10) << str_truncate(_last_name, 10) << " | ";
+    std::cout << std::setw(10) << str_truncate(_nickname, 10) << " | " ;
     std::cout << std::endl;
 }
 
