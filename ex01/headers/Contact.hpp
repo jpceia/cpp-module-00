@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 03:30:42 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 03:49:30 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/01 05:09:01 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 class   Contact
 {
 public:
-    void    ask_user_values();
-    void    short_print(int index);
-    void    full_print();
+    void    set_values(void);
+    void    print_short(int index);
+    void    print_full(void);
 private:
     std::string _first_name;
     std::string _last_name;

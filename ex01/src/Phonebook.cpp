@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 01:46:59 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 03:51:24 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/01 05:08:27 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,38 @@
 #include <iomanip>
 
 
-Phonebook::Phonebook()
+Phonebook::Phonebook(void)
 {
-    _contacts = new Contact[8];
+    _index = -1;
     _size = 0;
-}
-
-Phonebook::~Phonebook()
-{
-    // what happens if the destructor fails?
-    delete[] _contacts;
 }
 
 void    Phonebook::add_contact()
 {
-    Contact  contact;
-
-    contact.ask_user_values();
-    _contacts[_size] = contact;
-    _size = (_size + 1) % PHONEBOOK_MAX_SIZE;
+    _index = (_index + 1) % PHONEBOOK_MAX_SIZE;
+    if (_size < PHONEBOOK_MAX_SIZE)
+        _size++;
+    _contacts[_index].set_values();
 }
 
 void    Phonebook::print_contacts()
 {
-    std::cout << "index      | first name |  last name |  nickname " << std::endl;
-    for (size_t i=0; i < _size; i++)
-        _contacts[i].short_print(i);
+    std::cout << std::setw(10) << "Index" << " | ";
+    std::cout << std::setw(10) << "First name" << " | ";
+    std::cout << std::setw(10) << "Last name" << " | ";
+    std::cout << std::setw(10) << "Nickname" << " | ";
+    std::cout << std::endl;
+    for (int index = 0; index < _size; index++)
+        _contacts[index].print_short(index);
 }
 
-void    Phonebook::print_contact(int index)
+bool    Phonebook::print_contact(int index)
 {
-    if (index < 0 || index >= (int)_size)
+    if (index < 0 || index >= _size)
     {
-        std::cout << "Invalid index" << std::endl;
-        return ;
+        std::cout << "Invalid index. Please provide a valid one." << std::endl;
+        return (false);
     }
-    _contacts[index].full_print();
+    _contacts[index].print_full();
+    return (true);
 }

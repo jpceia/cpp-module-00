@@ -12,6 +12,7 @@ RM   		= rm -f
 
 WARN_FLAGS	= -Wall -Werror -Wextra -pedantic-errors
 INC_FLAGS	= -I$(INC_DIR)
+DEBUG_FLAGS	= -g -fsanitize=address
 
 CXXFLAGS	= $(WARN_FLAGS) $(INC_FLAGS) -std=c++98 
 
@@ -30,6 +31,12 @@ clean:
 
 fclean:	clean
 
+# Rebuild
 re:	fclean all
+
+# Debug
+debug:		CXXFLAGS += $(FLAGS_DEBUG)
+debug:		re
+
 
 .PHONY:		all clean fclean re

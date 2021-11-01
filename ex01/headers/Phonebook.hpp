@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 02:49:20 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 04:03:10 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/01 04:52:18 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@
 class Phonebook
 {
 public:
-    Phonebook();
-    ~Phonebook();
-    void    add_contact();
-    void    print_contacts();
-    void    print_contact(int index);
+    Phonebook(void);
+    void    add_contact(void);
+    void    print_contacts(void);
+    bool    print_contact(int index);
 private:
-    Contact *_contacts;
-    size_t  _size;
+    Contact _contacts[8];
+    int     _index;
+    int     _size;
 };
 
 #endif

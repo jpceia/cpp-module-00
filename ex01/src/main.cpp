@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 02:48:53 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 04:04:27 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/01 05:07:57 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,39 @@
 
 int main()
 {
-    Phonebook   pb;
+    Phonebook   phonebook;
     std::string command;
     int         index;
+    bool        success;
 
     while (true)
     {
-        std::cout << "Please insert one of the following commands" << std::endl;
+        std::cout << "Please insert one of the following commands: ADD, SEARCH, EXIT" << std::endl;
         std::getline(std::cin, command);
         if (command == "EXIT")
         {
-            std::cout << "Thank you for using CrapyBook." << std::endl;
+            std::cout << "Thank you for using Phonebook." << std::endl;
             break;
         }
         if (command == "ADD")
         {
-            pb.add_contact();
-            continue ;
+            phonebook.add_contact();
+            std::cout << "Contact successfully added." << std::endl;
         }
         else if (command == "SEARCH")
         {
-            pb.print_contacts();
+            phonebook.print_contacts();
             std::cout << "Please provide the index of the contact you want to see more details" << std::endl;
-            std::cin >> index;
-            pb.print_contact(index);
-            continue ;
+            success = false;
+            while (!success)
+            {
+                std::cin >> index;
+                std::cin.ignore();
+                success = phonebook.print_contact(index);
+            }
         }
-        std::cout << "Invalid command" << std::endl; 
+        else
+            std::cout << "Invalid command" << std::endl; 
     }
-    return (EXIT_SUCCESS);
+    return (0);
 }
