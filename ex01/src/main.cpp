@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 02:48:53 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 03:20:55 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/01 04:04:27 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ int main()
         }
         std::cout << "Invalid command" << std::endl; 
     }
+    return (EXIT_SUCCESS);
 }
