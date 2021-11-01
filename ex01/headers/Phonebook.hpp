@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 02:49:20 by jceia             #+#    #+#             */
-/*   Updated: 2021/10/06 02:51:30 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/01 03:50:14 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,9 @@
 
 #include <iostream>
 #include <iomanip>
+#include "Contact.hpp"
 
 # define PHONEBOOK_MAX_SIZE 8
-
-class   Contact
-{
-public:
-    void    ask_user_values();
-    void    short_print(int index);
-    void    full_print();
-private:
-    std::string _first_name;
-    std::string _last_name;
-    std::string _nickname;
-    std::string _phone_number;
-    std::string _darkest_secret;
-};
 
 class Phonebook
 {
