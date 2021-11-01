@@ -18,10 +18,10 @@ CXXFLAGS	= $(WARN_FLAGS) $(INC_FLAGS) -std=c++98
 # Object compilation
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%
 	@mkdir -p $(dir $@)
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 all: $(NAME)
 
