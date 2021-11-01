@@ -6,10 +6,11 @@ OBJS := $(SRCS:.cpp=.o)
 CXX	 = clang++
 RM   = rm -f
 
-FLAG_WARN	=  -Wall -Wextra -Werror
-FLAG_INC	= -I.
+FLAGS_WARN	= -Wall -Wextra -Werror
+FLAGS_INC	= -I.
+FLAGS_DEBUG = -g
 
-CXXFLAGS = $(FLAG_WARN) $(FLAG_INC)
+CXXFLAGS = $(FLAGS_WARN) $(FLAGS_INC)
 
 all:	$(NAME)
 
@@ -25,6 +26,12 @@ clean:
 fclean:	clean
 	$(RM) $(NAME)
 
+# Rebuild
 re:	fclean all
+
+# Debug
+debug:		CXXFLAGS += $(FLAGS_DEBUG)
+debug:		re
+
 
 .PHONY:		all clean fclean re
