@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 03:30:42 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 05:09:01 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 12:25:10 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ public:
         const std::string &phone_number,
         const std::string &darkest_secret
     );
-    void    set_values(void);
-    void    print_short(int index);
-    void    print_full(void);
+    void    print_short(int index) const;
+    void    print_full(void) const;
+
 private:
     std::string _first_name;
     std::string _last_name;
@@ -36,5 +36,7 @@ private:
     std::string _phone_number;
     std::string _darkest_secret;
 };
+
+Contact create_contact(void);
 
 #endif

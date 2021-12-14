@@ -27,7 +27,7 @@ void    Phonebook::add_contact()
     _index = (_index + 1) % PHONEBOOK_MAX_SIZE;
     if (_size < PHONEBOOK_MAX_SIZE)
         _size++;
-    _contacts[_index].set_values();
+    _contacts[_index] = create_contact();
 }
 
 void    Phonebook::print_contacts()
