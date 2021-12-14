@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/14 13:03:41 by jpceia            #+#    #+#              #
+#    Updated: 2021/12/14 13:14:43 by jpceia           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME 		= phonebook
 
 SRC_DIR		= src
@@ -21,15 +33,18 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%
 	@mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# Linking
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 all: $(NAME)
 
+# Cleaning
 clean:
-	$(RM) $(NAME)
+	$(RM) -rf $(OBJ_DIR)
 
 fclean:	clean
+	$(RM) $(NAME)
 
 # Rebuild
 re:	fclean all
@@ -39,4 +54,4 @@ debug:		CXXFLAGS += $(FLAGS_DEBUG)
 debug:		re
 
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re debug

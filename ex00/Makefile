@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/14 13:03:46 by jpceia            #+#    #+#              #
+#    Updated: 2021/12/14 13:14:43 by jpceia           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME 		= megaphone
 
 SRCS 		= megaphone.cpp
@@ -5,17 +17,23 @@ SRCS 		= megaphone.cpp
 CXX	 		= clang++
 RM   		= rm -f
 
-WARN_FLAGS	= -Wall -Werror -Wextra -pedantic-errors
+FLAGS_WARN	= -Wall -Werror -Wextra -pedantic-errors
 
-CXXFLAGS 	= $(WARN_FLAGS) -std=c++98 
+CXXFLAGS 	= $(FLAGS_WARN) -std=c++98 
 
 all:	$(NAME)
 
+# Cleaning
 clean:
 	$(RM) $(NAME)
 
-fclean:	clean
+fclean:	Cleaning
 
+# Rebuild
 re:	fclean all
 
-.PHONY:		all clean fclean re
+# Debug
+debug:		CXXFLAGS += $(FLAGS_DEBUG)
+debug:		re
+
+.PHONY:		all clean fclean re debug
