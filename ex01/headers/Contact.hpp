@@ -18,6 +18,14 @@
 class   Contact
 {
 public:
+    Contact(void);
+    Contact(
+        const std::string &first_name,
+        const std::string &last_name,
+        const std::string &nickname,
+        const std::string &phone_number,
+        const std::string &darkest_secret
+    );
     void    set_values(void);
     void    print_short(int index);
     void    print_full(void);
