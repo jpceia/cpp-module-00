@@ -6,7 +6,7 @@
 /*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 02:48:53 by jceia             #+#    #+#             */
-/*   Updated: 2021/12/14 11:45:55 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/12/14 12:15:58 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ bool iequals(const std::string &s1, const std::string &s2)
 }
 
 // asks for an integer to the user
+// if the user enters an invalid integer, it returns false
 bool    getint(int &n)
 {
     std::cin >> n;
@@ -58,11 +59,16 @@ int main(void)
         }
         else if (iequals(command, "ADD"))
         {
-            phonebook.add_contact();
+            phonebook.add_contact(create_contact());
             std::cout << "Contact successfully added." << std::endl;
         }
         else if (iequals(command, "SEARCH"))
         {
+            if (phonebook.get_size() == 0)
+            {
+                std::cout << "The phonebook is empty." << std::endl;
+                continue;
+            }
             phonebook.print_contacts();
             success = false;
             while (!success)
@@ -70,8 +76,15 @@ int main(void)
                 std::cout << "Please provide the index of the contact you want to see more details" << std::endl;
                 if (!getint(index))
                     continue;
-                success = phonebook.print_contact(index);
+                if (index < 0 || index >= phonebook.get_size())
+                {
+                    std::cout << "The provided index does not exist." << std::endl;
+                    continue;
+                }
+                phonebook.get_contact(index).print_full();
+                success = true;
             }
+            std::cout << std::endl;
         }
         else
             std::cout << "Invalid command" << std::endl; 

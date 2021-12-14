@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 01:46:59 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 05:08:27 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 12:32:08 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,16 @@ Phonebook::Phonebook(void)
     _size = 0;
 }
 
-void    Phonebook::add_contact()
+int Phonebook::add_contact(Contact contact)
 {
     _index = (_index + 1) % PHONEBOOK_MAX_SIZE;
     if (_size < PHONEBOOK_MAX_SIZE)
         _size++;
-    _contacts[_index] = create_contact();
+    _contacts[_index] = contact;
+    return _index;
 }
 
-void    Phonebook::print_contacts()
+void Phonebook::print_contacts() const
 {
     std::cout << std::setw(10) << "Index" << " | ";
     std::cout << std::setw(10) << "First name" << " | ";
@@ -41,13 +42,12 @@ void    Phonebook::print_contacts()
         _contacts[index].print_short(index);
 }
 
-bool    Phonebook::print_contact(int index)
+const Contact& Phonebook::get_contact(int index) const
 {
-    if (index < 0 || index >= _size)
-    {
-        std::cout << "Invalid index. Please provide a valid one." << std::endl;
-        return (false);
-    }
-    _contacts[index].print_full();
-    return (true);
+    return _contacts[index];
+}
+
+int Phonebook::get_size() const
+{
+    return (_size);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 02:49:20 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 04:52:18 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 12:33:38 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ class Phonebook
 {
 public:
     Phonebook(void);
-    void    add_contact(void);
-    void    print_contacts(void);
-    bool    print_contact(int index);
+    int add_contact(Contact contact);
+    void print_contacts(void) const;
+    const Contact& get_contact(int index) const;
+    int get_size(void) const;
 private:
-    Contact _contacts[8];
+    Contact _contacts[PHONEBOOK_MAX_SIZE];
     int     _index;
     int     _size;
 };
