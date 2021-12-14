@@ -6,7 +6,7 @@
 /*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 01:46:59 by jceia             #+#    #+#             */
-/*   Updated: 2021/12/14 12:32:08 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/12/14 12:54:48 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iostream>
 #include <iomanip>
 
+// Utils functions declarations
+bool getint(int &n);
 
 Phonebook::Phonebook(void)
 {
@@ -50,4 +52,31 @@ const Contact& Phonebook::get_contact(int index) const
 int Phonebook::get_size() const
 {
     return (_size);
+}
+
+void search_phonebook(Phonebook &phonebook)
+{
+    int     index;
+
+    if (phonebook.get_size() == 0)
+    {
+        std::cout << "The phonebook is empty." << std::endl;
+        return ;
+    }
+    phonebook.print_contacts();
+    std::cout << std::endl;
+    while (42)
+    {
+        std::cout << "Please provide the index of the contact you want to see more details." << std::endl;
+        if (!getint(index))
+            continue;
+        if (index < 0 || index >= phonebook.get_size())
+        {
+            std::cout << "The provided index does not exist in the phonebook." << std::endl;
+            continue ;
+        }
+        std::cout << std::endl << "Contact details:" << std::endl;
+        phonebook.get_contact(index).print_full();
+        break ;
+    }
 }

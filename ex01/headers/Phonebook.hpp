@@ -6,7 +6,7 @@
 /*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 02:49:20 by jceia             #+#    #+#             */
-/*   Updated: 2021/12/14 12:33:38 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/12/14 12:44:52 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ private:
     int     _index;
     int     _size;
 };
+
+void search_phonebook(Phonebook &phonebook);
 
 #endif

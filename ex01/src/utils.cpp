@@ -6,7 +6,7 @@
 /*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:36:34 by jpceia            #+#    #+#             */
-/*   Updated: 2021/12/14 12:37:24 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/12/14 12:47:09 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool iequals(const std::string &s1, const std::string &s2)
 
 // asks for an integer to the user
 // if the user enters an invalid integer, it returns false
-bool    getint(int &n)
+bool getint(int &n)
 {
     std::cin >> n;
     std::cin.ignore();
