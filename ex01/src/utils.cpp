@@ -39,3 +39,11 @@ bool getint(int &n)
     }
     return true;
 }
+
+// truncates a string to a given length
+std::string str_truncate(std::string s, size_t max_length)
+{
+    if (s.length() > max_length)
+        s = s.substr(0, 9) + ".";
+    return (s);
+}

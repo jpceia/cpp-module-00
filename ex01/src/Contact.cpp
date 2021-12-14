@@ -6,13 +6,15 @@
 /*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 03:30:45 by jceia             #+#    #+#             */
-/*   Updated: 2021/12/14 12:12:02 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/12/14 12:46:12 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <iostream>
 #include <iomanip>
+
+std::string str_truncate(std::string s, size_t max_length);
 
 Contact::Contact(void)
 {
@@ -31,13 +33,6 @@ Contact::Contact(
     _phone_number(phone_number),
     _darkest_secret(darkest_secret)
 {
-}
-
-std::string str_truncate(std::string s, size_t max_length)
-{
-    if (s.length() > max_length)
-        s = s.substr(0, 9) + ".";
-    return (s);
 }
 
 void    Contact::print_short(int index) const
