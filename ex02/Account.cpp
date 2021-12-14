@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 03:02:50 by jceia             #+#    #+#             */
-/*   Updated: 2021/11/01 06:43:55 by jceia            ###   ########.fr       */
+/*   Updated: 2021/12/14 13:33:50 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,17 @@ int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
 void    print_timestamp( void )
-{
-    std::time_t t = std::time(nullptr);
-    struct std::tm *ptm = std::localtime(&t);
+{    
+    # ifdef DEBUG
+    std::cout << "[19920104_091532] ";
+    # else
+    std::time_t t = std::time(NULL);
+    struct std::tm *info = std::localtime(&t);
+    char buf[20];
     
-    std::cout << "[" << std::put_time(ptm, "%Y%m%d_%H%M%S") << "] ";
+    std::strftime(buf, 20, "[%Y%m%d_%H%M%S] ", info);
+    std::cout << buf;
+    # endif
 }
 
 Account::Account( int initial_deposit )
@@ -42,6 +48,7 @@ Account::Account( int initial_deposit )
     std::cout << "amount:" << _amount << ";";
     std::cout << "created" << std::endl;
 }
+
 Account::~Account( void )
 {
     print_timestamp();

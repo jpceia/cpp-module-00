@@ -20,9 +20,9 @@ RM   = rm -f
 
 FLAGS_WARN	= -Wall -Wextra -Werror
 FLAGS_INC	= -I.
-FLAGS_DEBUG = -g
+FLAGS_DEBUG = -g -DDEBUG
 
-CXXFLAGS = $(FLAGS_WARN) $(FLAGS_INC)
+CXXFLAGS = $(FLAGS_WARN) $(FLAGS_INC) -std=c++98 
 
 all:	$(NAME)
 
