@@ -6,7 +6,7 @@
 #    By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/14 13:03:46 by jpceia            #+#    #+#              #
-#    Updated: 2021/12/14 13:14:43 by jpceia           ###   ########.fr        #
+#    Updated: 2021/12/18 19:07:47 by jpceia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ all:	$(NAME)
 clean:
 	$(RM) $(NAME)
 
-fclean:	Cleaning
+fclean:	clean
 
 # Rebuild
 re:	fclean all
